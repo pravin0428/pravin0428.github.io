@@ -1,4 +1,4 @@
-.stats {
+/* .stats {
     width: 95%;
      margin: auto;
      gap: 1rem;
@@ -39,4 +39,19 @@
    }
    .achievement span:nth-of-type(2){
        color: var(--yellow);
+   } */
+
+   @media screen and (min-width: 200px) and (max-width: 490px) {
+    .git_calender .react-activity-calendar__count{
+        font-size: 10px;
+       }
+
+   .git_calender .react-activity-calendar__legend-colors{
+    font-size: 10px;
+   /* width: 60%; */
    }
+   .git_calender .react-activity-calendar__legend-colors >svg {
+    width: 50%;
+    height: 20%;
+   }
+}

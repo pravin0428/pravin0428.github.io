@@ -102,7 +102,7 @@
     gap: 40px;
     height: auto;
     margin: auto;
-    border: 4px solid rgb(22, 112, 4);
+    /* border: 4px solid rgb(22, 112, 4); */
     margin-top: 20px;
     /* box-shadow: rgba(129, 249, 8, 0.27) 0px -23px 25px 0px inset, rgba(6, 245, 14, 0.15) 0px -36px 30px 0px inset, rgba(3, 211, 65, 0.1) 0px -79px 40px 0px inset, rgba(242, 15, 15, 0.06) 0px 2px 1px, rgba(246, 36, 36, 0.09) 0px 4px 2px, rgba(241, 20, 20, 0.09) 0px 8px 4px, rgba(245, 5, 5, 0.09) 0px 16px 8px, rgba(240, 20, 20, 0.09) 0px 32px 16px;  */
   }
@@ -110,7 +110,7 @@
     text-align: center;
     align-items: center;
     margin: auto;
-    border: 4px solid rgb(249, 210, 12);
+    /* border: 4px solid rgb(249, 210, 12); */
     font-size: 30px;
   }
 
@@ -124,7 +124,7 @@
     width: 100%;
     height: auto;
     margin: auto;
-    border: 4px solid rgb(7, 56, 128);
+    /* border: 4px solid rgb(7, 56, 128); */
     margin-top: -31px;  
   }
 
@@ -133,7 +133,7 @@
   } */
 
   .forwith820Info {
-    border: 4px solid rgb(244, 13, 225);
+    /* border: 4px solid rgb(244, 13, 225); */
     display: none;
   }
 
@@ -153,7 +153,7 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 40px;
     height: auto; */
-    border: 4px solid rgb(13, 20, 20);
+    /* border: 4px solid rgb(13, 20, 20); */
     /* border: 4px solid rgb(22, 112, 4); */
     /* box-shadow: rgba(129, 249, 8, 0.27) 0px -23px 25px 0px inset, rgba(6, 245, 14, 0.15) 0px -36px 30px 0px inset, rgba(3, 211, 65, 0.1) 0px -79px 40px 0px inset, rgba(242, 15, 15, 0.06) 0px 2px 1px, rgba(246, 36, 36, 0.09) 0px 4px 2px, rgba(241, 20, 20, 0.09) 0px 8px 4px, rgba(245, 5, 5, 0.09) 0px 16px 8px, rgba(240, 20, 20, 0.09) 0px 32px 16px;  */
   }
@@ -162,9 +162,9 @@
     font-size: xx-large;
   }
   .photoCont {
-    border: 4px solid rgb(54, 234, 234);
-    width: 80%;
-    height: auto;
+    /* border: 4px solid rgb(222, 54, 234); */
+    width: 100%;
+    height: 82%;
     margin: auto;
     margin-bottom: 10px;
   }
@@ -182,7 +182,7 @@
   }
 
   .forwith820 {
-    border: 4px solid rgb(244, 13, 225);
+    /* border: 4px solid rgb(13, 221, 244); */
     /* height: 100%;   */
     height: auto;
   }
@@ -192,18 +192,18 @@
     grid-template-columns: repeat(2, 1fr);
     height: 0px;
     /* padding: 0%; */
-    border: 4px solid rgb(104, 5, 210);
+    /* border: 4px solid rgb(104, 5, 210); */
     width: 100%;
     margin: auto;
   }
 
   .linkdn {
     margin: auto;
-    border: 4px solid rgb(247, 100, 8);
+    /* border: 4px solid rgb(247, 100, 8); */
   }
   .git {
     margin: auto;
-    border: 4px solid rgb(148, 184, 241);
+    /* border: 4px solid rgb(148, 184, 241); */
   }
 }
 

@@ -26,7 +26,7 @@ function Navbar() {
         >
           <div className={styles.nav}>About</div>
         </Link>
-
+   
         <Link
           to="skills"
           smooth={true}
@@ -47,6 +47,7 @@ function Navbar() {
         >
           <div className={styles.nav}>Projects</div>
         </Link>
+        
         <Link
           to="contact"
           smooth={true}
@@ -56,9 +57,13 @@ function Navbar() {
           hashSpy={true}
         >
           <div className={styles.nav}>Contact</div>
+          
         </Link>
+       
       </div>
+      
     </div>
+    
   );
 }
 
