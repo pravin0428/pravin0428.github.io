@@ -86,12 +86,12 @@ function GitCalender() {
     blockMargin={5}
     fontSize={16}
     showWeekdayLabels
-    // hideTotalCount={true}
+    //  hideTotalCount={true}
     // hideColorLegend={{base:false,sm:true, md:false}}
     theme={colorTheme}
   >
     <Tooltip delayShow={20} html />
-  </GitHubCalendar>
+  </GitHubCalendar  >
   </Stack>
   </Container>
   </Box>

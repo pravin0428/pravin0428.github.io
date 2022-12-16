@@ -59,7 +59,7 @@
   @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
   
   form {
-    max-width: 420px;
+    max-width: 400px;
     margin: 50px auto;
   }
   
@@ -75,7 +75,7 @@
     transition: all 0.3s;
     padding: 13px;
     margin-bottom: 15px;
-    width: 100%;
+    width: 95%;
     box-sizing: border-box;
     outline: 0;
   }
@@ -95,7 +95,7 @@
   
   [type="submit"] {
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
-    width: 100%;
+    width: 95%;
     background: #2934d3;
     border-radius: 5px;
     border: 0;
