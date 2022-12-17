@@ -10,7 +10,7 @@ function AboutSection() {
         <div className={styles.mainCont}>
           <div className={styles.profilePicCont}>
             <img
-              src="PravinMohite.jpg"
+              src="portfolio_img.jpeg"
               alt=""
               className={styles.profilePic}
             />

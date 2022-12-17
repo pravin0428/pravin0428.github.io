@@ -155,18 +155,18 @@
       /* padding: 7px 0; */
       
       width: 100%;
-      border: 2px solid deeppink;
+      /* border: 2px solid deeppink; */
     }
 
     .linkDiv{
-      border: 2px solid rgb(28, 12, 203);
+      /* border: 2px solid rgb(28, 12, 203); */
        width: 70%;
       margin: auto;
        
     }
 
     .linkDiv p{
-      border: 2px solid rgb(12, 203, 18);
+      /* border: 2px solid rgb(12, 203, 18); */
       width: 30%;
     }
     /* .projInfo {
