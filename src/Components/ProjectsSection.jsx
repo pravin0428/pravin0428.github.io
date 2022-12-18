@@ -26,7 +26,7 @@ const projects = [
     img: "/sephora_poster.png",
     link: "https://sephora-clone-five.vercel.app/",
     git: "https://github.com/pravin0428/Sephora.com-Clone/tree/master",
-    about:"This is a clone of e-commerce website named as Sephora.com here you will find all the mackup product ",
+    about:"This is a clone of an e-commerce website named Sephora.com. Here you will find all the makeup products.",
     stacks: [
      <SiJavascript className={styles.stackIcon} />,
       <SiHtml5 className={styles.stackIcon} />,
@@ -57,7 +57,7 @@ const projects = [
     link: "https://candid-paletas-feef7b.netlify.app",
     git: "https://github.com/chaitanya0319/Collab",
     about:
-      "This is a clone of an e-commerce website named Boat-Lifestyle. Users can buy headphones, earphones, earbuds, speakers, and smart watches on this platform.",
+      "This is a clone of an e-commerce website named Boat-Lifestyle. Users can buy headphones, earphones, earbuds, speakers, and smartwatches on this platform.",
     stacks: [
     <SiJavascript className={styles.stackIcon} />,
       <SiHtml5 className={styles.stackIcon} />,

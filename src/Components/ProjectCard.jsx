@@ -31,8 +31,10 @@ export function ProjectCard({ name, img, git, link, stacks, about , duration ,st
             <p>{about}</p>
           </Fade>
         </div>
-        <div className={styles.durationAndStatus} ><div>{`Status : ${status}`}</div>
-        <div>{`Duration : ${duration}`}</div></div>
+        <div className={styles.durationAndStatus} >
+        <div>{`Status : ${status}`}</div>
+        <div >{`Duration : ${duration}`}</div>
+        </div>
       </div>
     </>
   )

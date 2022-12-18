@@ -44,7 +44,8 @@ export function HeroSection() {
         <div className={styles.nameCont}>
           <p>Hi,</p>
           <p> I am <span className={styles.animate} >Pravin Mohite</span>{" "}</p>
-          <p> Full Stack Web Developer</p>
+          <p style={{marginBottom : "10px"}} > Full Stack Web Developer</p>
+         
           <a
             href="https://drive.google.com/file/d/1mbjKLsqqQWV12ZTEy7g5OMC-pFPPujRf/view?usp=sharing"
             target="_blank"
@@ -76,7 +77,7 @@ export function HeroSection() {
           <div className={styles.linkdn} >
           <a
             rel="noreferrer"
-            href="https://www.linkedin.com/in/gaurav-sharma-693236201/"
+            href="https://www.linkedin.com/in/pravin-mohite-40b56221b/"
             className={classes.a}
             target="_blank"
           >
@@ -86,7 +87,7 @@ export function HeroSection() {
           <div className={styles.git} >
           <a
             rel="noreferrer"
-            href="https://github.com/grvsharma1994"
+            href="https://github.com/pravin0428"
             className={classes.a}
             target="_blank"
           >

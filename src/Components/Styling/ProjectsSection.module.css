@@ -125,10 +125,12 @@
   }
 
   .durationAndStatus{
-    /* border: 2px solid deeppink; */
+     /* border: 2px solid deeppink;   */
     display: flex;
     justify-content: space-between;
-   padding: 15px;
+    width: 90%;
+    margin: auto;
+      
    align-items: baseline;
   }
 

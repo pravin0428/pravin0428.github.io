@@ -1,19 +1,21 @@
 import styles from "./Styling/Navbar.module.css";
 import { Link } from "react-scroll";
+// import DropNavbar  from "./DropNavbar"
 function Navbar() {
   return (
     <div className={styles.root}>
+      {/* <DropNavbar/> */}
       <Link
-        to="hero"
-        smooth={true}
-        duration={1000}
-        spy={true}
-        hashSpy={true}
-        activeClass={styles.active}
+        // to="hero"
+        // smooth={true}
+        // duration={1000}
+        // spy={true}
+        // hashSpy={true}
+        // activeClass={styles.active}
       >
-        <div className={styles.navlogo}>
+        {/* <div className={styles.navlogo}>
           <img src="" alt="" className={styles.logoimg} />
-        </div>
+        </div> */}
       </Link>
       <div className={styles.navsCont}>
         <Link
