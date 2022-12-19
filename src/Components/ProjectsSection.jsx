@@ -3,20 +3,24 @@ import styles from "./Styling/ProjectsSection.module.css"
 import { SiJavascript } from "react-icons/si"
 import { SiHtml5 } from "react-icons/si"
 import { SiCss3 } from "react-icons/si"
+import {SiReact} from "react-icons/si"
+import {SiChakraui} from "react-icons/si"
+import {SiExpress} from "react-icons/si"
+ 
 import Fade from "react-reveal/Fade"
 const projects = [
   
   {
     name: "Trouper.com",
-    img: "/geekbuying.com.png",
-    link: "https://geekbuyingapp.netlify.app/",
-    git: "https://github.com/mr-ashu/nutty-form-5506",
+    img: "trouperphoto.png",
+    link: "https://jazzy-lokum-73584a.netlify.app/",
+    git: "https://github.com/pravin0428/nutty-form-5506",
     about:
-      "This is a clone of the e-commerce website Geekbuying.com, where you can get the best deals on electronics and home appliances. ",
+      "Freelance Services Marketplace for The Lean Entrepreneur. Try Now! ",
     stacks: [
-    <SiJavascript className={styles.stackIcon} />,
-      <SiHtml5 className={styles.stackIcon} />,
-      <SiCss3 className={styles.stackIcon} />,
+    <SiReact className={styles.stackIcon} />,
+      <SiChakraui className={styles.stackIcon} />,
+      <SiExpress className={styles.stackIcon} />,
     ],
     duration : "5 Days",
     status : "Group project"
@@ -28,9 +32,9 @@ const projects = [
     git: "https://github.com/pravin0428/Sephora.com-Clone/tree/master",
     about:"This is a clone of an e-commerce website named Sephora.com. Here you will find all the makeup products.",
     stacks: [
-     <SiJavascript className={styles.stackIcon} />,
-      <SiHtml5 className={styles.stackIcon} />,
-      <SiCss3 className={styles.stackIcon} />,
+     <SiReact className={styles.stackIcon} />,
+      <SiChakraui className={styles.stackIcon} />,
+      // <SiCss3 className={styles.stackIcon} />,
     ],
     duration : "5 Days",
     status : "Individual project"
