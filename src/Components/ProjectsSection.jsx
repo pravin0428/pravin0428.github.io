@@ -13,10 +13,10 @@ const projects = [
   {
     name: "Trouper.com",
     img: "trouperphoto.png",
-    link: "https://jazzy-lokum-73584a.netlify.app/",
+    link: "https://trouperpro.netlify.app/",
     git: "https://github.com/pravin0428/nutty-form-5506",
     about:
-      "Freelance Services Marketplace for The Lean Entrepreneur. Try Now! ",
+      "Upgrade to a curated experience packed with tools and benefits, dedicated to businesses. Get matched with the perfect talent by a customer success manager ",
     stacks: [
     <SiReact className={styles.stackIcon} />,
       <SiChakraui className={styles.stackIcon} />,
@@ -30,7 +30,7 @@ const projects = [
     img: "/sephora_poster.png",
     link: "https://sephora-clone-five.vercel.app/",
     git: "https://github.com/pravin0428/Sephora.com-Clone/tree/master",
-    about:"This is a clone of an e-commerce website named Sephora.com. Here you will find all the makeup products.",
+    about:"Discover the latest in beauty at Sephora! Explore an unrivaled selection of makeup",
     stacks: [
      <SiReact className={styles.stackIcon} />,
       <SiChakraui className={styles.stackIcon} />,
@@ -46,7 +46,7 @@ const projects = [
     link: "https://admirable-halva-9f908e.netlify.app/",
     git:"https://github.com/pravin0428/YOOX.com-Clone",
     about:
-      "This is a clone of the e-commerce website YOOX.com, where you can find all of your fashion accessories.",
+      "Discover a wide array of products by the best Italian and international designers on YOOX. Fast delivery and secure payments.",
     stacks: [
       <SiJavascript className={styles.stackIcon} />,
       <SiHtml5 className={styles.stackIcon} />,
@@ -61,7 +61,7 @@ const projects = [
     link: "https://candid-paletas-feef7b.netlify.app",
     git: "https://github.com/chaitanya0319/Collab",
     about:
-      "This is a clone of an e-commerce website named Boat-Lifestyle. Users can buy headphones, earphones, earbuds, speakers, and smartwatches on this platform.",
+      "Check out the breathtaking collection of Earbuds, Headphones, Earphones & Wireless…",
     stacks: [
     <SiJavascript className={styles.stackIcon} />,
       <SiHtml5 className={styles.stackIcon} />,

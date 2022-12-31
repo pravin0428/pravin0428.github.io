@@ -36,7 +36,8 @@
   .projectCont {
     width: 100%;
     margin: auto;
-    height: 550px;
+    height: 560px;
+    /* border: 2px solid red; */
     /* height: auto; */
     border-radius: 5px;
     text-align: center;
@@ -125,13 +126,12 @@
   }
 
   .durationAndStatus{
-     /* border: 2px solid deeppink;   */
+    /* border: 2px solid deeppink;    */
     display: flex;
     justify-content: space-between;
     width: 90%;
     margin: auto;
-      
-   align-items: baseline;
+   
   }
 
   @media only screen and (max-width: 820px) {
@@ -171,6 +171,8 @@
       /* border: 2px solid rgb(12, 203, 18); */
       width: 30%;
     }
+
+    
     /* .projInfo {
       display: none;
     }
@@ -182,3 +184,12 @@
     } */
  
   }
+  @media only screen and (max-width: 320px){
+    .projInfo > p {
+      font-size: 17px;
+      color: gray;
+      /* border: 2px solid rgb(12, 203, 18); */
+        text-align: center;  
+    }
+  }
+  

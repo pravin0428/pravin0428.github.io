@@ -4,10 +4,12 @@ import emailjs from '@emailjs/browser';
 import { Form,TextArea } from 'semantic-ui-react'
 import Swal from 'sweetalert2'
 import Fade from "react-reveal/Fade"
+// import { useRef } from "react";
 export function ContactSection() {
+ 
 const handleOnSubmit = (e) => {
-  e.preventDefault()
-  emailjs.sendForm('service_o87nnal', 'template_ig7lakc', e.target, 'v6XbrIZLnDEV-IVZ-').then(
+e.preventDefault()
+  emailjs.sendForm('service_908gdqf', 'template_b76n9pd', e.target, 'KcOBkDiI9xi5b_JZM').then(
       (result) => {
         console.log(result.text)
         Swal.fire({
@@ -31,7 +33,7 @@ const handleOnSubmit = (e) => {
       <Fade bottom>
         <p className={styles.contactHeading}>Contact Me</p>
         <div className="App">
-      <Form onSubmit={handleOnSubmit}>
+      <Form onSubmit={handleOnSubmit}  >
         <input
           label="Email"
           className={styles.feedback_input}

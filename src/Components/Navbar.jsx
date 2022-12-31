@@ -143,6 +143,7 @@ function Navbar() {
           <Box
             pb={4}
             display={{ md: "none" }}
+            
             //  border="2px solid green"
           >
             <Stack
@@ -157,6 +158,7 @@ function Navbar() {
                 // activeClass={styles.active}
                 spy={true}
                 hashSpy={true}
+                
               >
                 <div>Skills</div>
               </Link>
