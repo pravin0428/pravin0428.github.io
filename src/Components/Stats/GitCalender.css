@@ -41,86 +41,76 @@
        color: var(--yellow);
    } */
 
-
-   .stats{
-  
-    border: 3px solid yellow;
-    margin: auto;
-    width: 100%;
+.stats {
+  /*   
+    border: 3px solid yellow; */
+  margin: auto;
+  width: 100%;
 }
-.middleBox{
-    display: flex;
+.middleBox {
+  display: flex;
   justify-content: space-between;
-    border: 3px solid violet;
-    width: 100%;
-    
+  border: 3px solid violet;
+  width: 100%;
 }
 
 @media screen and (min-width: 200px) and (max-width: 490px) {
-    .middleBox{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        border: 3px solid white;
-        width: 100%;
-        margin: auto;
-        
-    }
-    .stats{
-  
-        border: 3px solid yellow;
-        margin: auto;
-        width: 100%;
-    }
-    
-
-  
+  .middleBox {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    border: 3px solid white;
+    width: 100%;
+    margin: auto;
+  }
+  .stats {
+    /* border: 3px solid yellow; */
+    margin: auto;
+    width: 100%;
+  }
 }
 
 @media (min-width: 190px) and (max-width: 830px) {
-    .middleBox{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        border: 3px solid white;
-        width: 100%;
-        
-    }
-    .stats{
-  
-        border: 5px solid red;
-        width: 100%;
-        margin: auto;
-
-    }
+  .middleBox {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    border: 3px solid white;
+    width: 100%;
+  }
+  .stats {
+    /* border: 5px solid red; */
+    width: 100%;
+    margin: auto;
+  }
 }
 
 @media (min-width: 830px) and (max-width: 1024px) {
-    .middleBox{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        border: 3px solid white;
-        width: 100%;
-        
-    }
-    .stats{
-  
-        border: 5px solid blue(207, 226, 177);
-        width: 90%;
-        margin:auto
-    }
+  .middleBox {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    border: 3px solid white;
+    width: 100%;
+  }
+  .stats {
+    border: 5px solid blue(207, 226, 177);
+    width: 90%;
+    margin: auto;
+  }
 }
 
-
-   @media screen and (min-width: 200px) and (max-width: 490px) {
-    .git_calender .react-activity-calendar__count{
-        font-size: 10px;
-       }
-
-   .git_calender .react-activity-calendar__legend-colors{
+@media screen and (min-width: 200px) and (max-width: 490px) {
+  .git_calender .react-activity-calendar__count {
     font-size: 10px;
-   /* width: 60%; */
-   }
-   .git_calender .react-activity-calendar__legend-colors >svg {
+    /* border: 5px solid red; */
+    text-align: start;
+  }
+
+  .git_calender .react-activity-calendar__legend-colors {
+    font-size: 10px;
+
+    /* width: 60%; */
+  }
+  .git_calender .react-activity-calendar__legend-colors > svg {
     width: 50%;
     height: 20%;
-   }
+  }
 }
