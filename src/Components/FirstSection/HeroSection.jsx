@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     color: "white",
     // border: "5px solid red",
     backgroundColor: "rgb(8, 111, 143)",
-    width: "130px",
+    width: "auto",
     height: "45px",
     "&:hover": {
       backgroundColor: "rgb(21, 138, 173)",
@@ -51,12 +51,13 @@ export function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button variant="contained" className={classes.contactBtn}>
+            <Button variant="contained" className={classes.contactBtn} id="re-button" >
               <RiDownloadLine
                 style={{
                   fontSize: "18px",
                   marginLeft: "10px",
                   marginRight: "5px",
+                  // border:"2px solid red"
                 }}
               />
               Resume

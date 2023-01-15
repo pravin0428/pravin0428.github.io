@@ -16,13 +16,13 @@ const projects = [
     link: "https://trouperpro.netlify.app/",
     git: "https://github.com/pravin0428/nutty-form-5506",
     about:
-      "Upgrade to a curated experience packed with tools and benefits, dedicated to businesses. Get matched with the perfect talent by a customer success manager ",
+      "Upgrade to a curated experience packed with tools and benefits dedicated to businesses. A customer success manager can match you with the perfect talent.",
     stacks: [
     <SiReact className={styles.stackIcon} />,
       <SiChakraui className={styles.stackIcon} />,
       <SiExpress className={styles.stackIcon} />,
     ],
-    duration : "5 Days",
+    duration : "5 days",
     status : "Group project"
   },
   {
@@ -30,13 +30,13 @@ const projects = [
     img: "/sephora_poster.png",
     link: "https://sephora-clone-five.vercel.app/",
     git: "https://github.com/pravin0428/Sephora.com-Clone/tree/master",
-    about:"Discover the latest in beauty at Sephora! Explore an unrivaled selection of makeup",
+    about:"Discover the latest in beauty at Sephora! Explore an unrivalled selection of makeup",
     stacks: [
      <SiReact className={styles.stackIcon} />,
       <SiChakraui className={styles.stackIcon} />,
       // <SiCss3 className={styles.stackIcon} />,
     ],
-    duration : "5 Days",
+    duration : "5 days",
     status : "Individual project"
   },
   
@@ -46,13 +46,13 @@ const projects = [
     link: "https://admirable-halva-9f908e.netlify.app/",
     git:"https://github.com/pravin0428/YOOX.com-Clone",
     about:
-      "Discover a wide array of products by the best Italian and international designers on YOOX. Fast delivery and secure payments.",
+      "Discover a wide array of products by the best Italian and international designers on YOOX. Fast delivery and secure payments",
     stacks: [
       <SiJavascript className={styles.stackIcon} />,
       <SiHtml5 className={styles.stackIcon} />,
       <SiCss3 className={styles.stackIcon} />,
     ],
-    duration : "5 Days",
+    duration : "5 days",
     status : "Group project"
   },
   {
@@ -61,13 +61,13 @@ const projects = [
     link: "https://candid-paletas-feef7b.netlify.app",
     git: "https://github.com/chaitanya0319/Collab",
     about:
-      "Check out the breathtaking collection of Earbuds, Headphones, Earphones & Wireless…",
+      "Examine the stunning selection of earbuds, headphones, earphones, and wireless devices. ",
     stacks: [
     <SiJavascript className={styles.stackIcon} />,
       <SiHtml5 className={styles.stackIcon} />,
       <SiCss3 className={styles.stackIcon} />,
     ],
-    duration : "5 Days",
+    duration : "5 days",
     status : "Group project"
   }
   ]

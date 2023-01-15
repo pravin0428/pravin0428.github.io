@@ -60,7 +60,7 @@ e.preventDefault()
         </Form>
     </div>
     <hr style={{ width: "95vw" }} />
-        <p className={styles.text}>Liked my work? Want to get in touch?</p>
+        <p className={styles.text}>Did you enjoy my work? Want to get in touch?</p>
         <p className={styles.text}>You can reach out to me at:</p>
         <div className={styles.iconsCont}>
           <a href="mohite461998@gmail.com">
