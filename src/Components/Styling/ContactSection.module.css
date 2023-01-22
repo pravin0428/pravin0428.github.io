@@ -1,7 +1,8 @@
 .rootCont {
     text-align: center;
-    background-color: rgb(16, 122, 192);
-    color: white;
+    /* background-color: rgb(16, 122, 192); */
+    background-color: #35383d;
+    color: #f0d122;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,14 +65,14 @@
   }
   
   .feedback_input {
-    color: white;
+    color: #f0d122;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
     border-radius: 5px;
     line-height: 22px;
     background-color: transparent;
-    border: 2px solid #dbd2d2;
+    border: 2px solid #060708;
     transition: all 0.3s;
     padding: 13px;
     margin-bottom: 15px;
@@ -80,11 +81,11 @@
     outline: 0;
   }
   .feedback_input::placeholder{
-  color: white;
+  color: #f0d122;
   }
   
   .feedback_input:focus {
-    border: 2px solid #eedfdf;
+    border: 2px solid white;
   }
   
   textarea {
@@ -96,11 +97,12 @@
   [type="submit"] {
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
     width: 95%;
-    background: #2934d3;
+    /* background: #2934d3; */
+    background: #1a1b1c;  
     border-radius: 5px;
     border: 0;
     cursor: pointer;
-    color: white;
+    color: #f0d122;
     font-size: 24px;
     padding-top: 10px;
     padding-bottom: 10px;

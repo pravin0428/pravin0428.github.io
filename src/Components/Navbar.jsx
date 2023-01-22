@@ -4,13 +4,10 @@ import {
   Flex,
   Avatar,
   HStack,
-  // Link,
   IconButton,
   Button,
   Menu,
   MenuButton,
-  MenuList,
-  MenuItem,
   MenuDivider,
   useDisclosure,
   useColorModeValue,
@@ -32,6 +29,7 @@ function Navbar() {
         w="100%"
         zIndex={1}
         color="#f0d122"
+        borderBottom="1px solid white"
       >
         <Flex
           h={16}
@@ -114,7 +112,7 @@ function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div  >Resume</div>
+                <div>Resume</div>
               </a>
             </HStack>
           </HStack>
@@ -143,7 +141,7 @@ function Navbar() {
           <Box
             pb={4}
             display={{ md: "none" }}
-            
+
             //  border="2px solid green"
           >
             <Stack
@@ -158,7 +156,6 @@ function Navbar() {
                 // activeClass={styles.active}
                 spy={true}
                 hashSpy={true}
-                
               >
                 <div>Skills</div>
               </Link>
