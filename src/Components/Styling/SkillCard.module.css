@@ -1,20 +1,16 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 100px;
-    margin: 20px auto;
-    padding-top: 20px;
-    cursor: pointer;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;
+  margin: 20px auto;
+  padding-top: 20px;
+  cursor: pointer;
+}
 
-  /* .skillHeading{
+/* .skillHeading{
     font-size: 40px;
     font-weight: 400;
     margin: 10px;
   } */
-
-  
- 
-  

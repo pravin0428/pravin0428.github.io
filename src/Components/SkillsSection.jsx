@@ -1,5 +1,5 @@
 import styles from "./Styling/SkillsSection.module.css";
-import  SkillCard  from "./SkillCard";
+import SkillCard from "./SkillCard";
 import { GrReactjs } from "react-icons/gr";
 import { SiRedux } from "react-icons/si";
 import { SiJavascript } from "react-icons/si";
