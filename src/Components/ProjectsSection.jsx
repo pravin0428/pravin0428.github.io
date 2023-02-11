@@ -6,7 +6,8 @@ import { SiCss3 } from "react-icons/si"
 import {SiReact} from "react-icons/si"
 import {SiChakraui} from "react-icons/si"
 import {SiExpress} from "react-icons/si"
- 
+import {SiNextdotjs} from "react-icons/si"
+          
 import Fade from "react-reveal/Fade"
 const projects = [
   
@@ -51,6 +52,36 @@ const projects = [
       <SiJavascript className={styles.stackIcon} />,
       <SiHtml5 className={styles.stackIcon} />,
       <SiCss3 className={styles.stackIcon} />,
+    ],
+    duration : "5 days",
+    status : "Group project"
+  },
+  {
+    name: "Full-stack-curd-app",
+    img: "/fullStack-pic.png",
+    link: "https://my-app-tau-flame.vercel.app/",
+    git: "https://github.com/pravin0428/fullstack",
+    about:
+        "Costome shop for curd-related product applications",
+    stacks: [
+      <SiReact className={styles.stackIcon} />,
+      <SiChakraui className={styles.stackIcon} />,
+      <SiExpress className={styles.stackIcon} />,
+    ],
+    duration : "3 days",
+    status : "Individual project"
+  },
+  {
+    name: "TripBook.com",
+    img: "/tripbook-pic.png",
+    link: "https://tripbook.vercel.app/",
+    git: "https://github.com/rajkumar7859/Tripbook.com",
+    about:
+      "Book your tickets only on Tripbook.com and enjoy a hassle-free, super-fast booking experience.",
+    stacks: [
+    <SiNextdotjs className={styles.stackIcon}/>,
+    <SiJavascript className={styles.stackIcon} />,
+    <SiChakraui className={styles.stackIcon} />,
     ],
     duration : "5 days",
     status : "Group project"

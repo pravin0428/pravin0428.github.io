@@ -6,7 +6,7 @@ export function ProjectCard({ name, img, git, link, stacks, about , duration ,st
   return (
     <>
       <div className={styles.projectCont}>
-        <img src={img} alt="" className={styles.image} />
+        <img src={img} alt="pro-card" className={styles.image}  />
         <p style={{ fontSize: "25px", fontWeight: "400", margin: "5px 0 0 0" }}>
           {name}
         </p>
