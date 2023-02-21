@@ -10,7 +10,7 @@ export function ProjectCard({ name, img, git, link, stacks, about , duration ,st
         <p style={{ fontSize: "25px", fontWeight: "400", margin: "5px 0 0 0" }}>
           {name}
         </p>
-        <div className={styles.stacksDiv2}>{stacks.map((stack) => stack)}</div>
+        {/* <div className={styles.stacksDiv2}>{stacks.map((stack) => stack)}</div> */}
         <div className={styles.linkCont}>
           <a href={git} rel="noreferrer" target="_blank">
             <div className={styles.linkDiv}>

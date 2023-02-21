@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+   /* border: 5px solid rgb(51, 182, 14);   */
 }
 .projectsSectionCont h1 {
   color: rgb(0, 49, 64);
@@ -35,8 +36,10 @@ a {
 .projectCont {
   width: 100%;
   margin: auto;
-  height: 460px;
-  /* border: 2px solid red; */
+  /* height: 470px; */
+  height: 100%;
+  /* border: 2px solid rgb(226, 8, 189);  */
+  padding: 10px 10px 15px 10px; 
   /* height: auto; */
   border-radius: 5px;
   text-align: center;
@@ -70,6 +73,7 @@ max-height:100%;
   align-items: center;
   justify-content: space-around;
   padding: 10px 0;
+  /* border: 2px solid orange; */
 }
 .linkCont > p {
   font-size: 25px;
@@ -81,7 +85,7 @@ max-height:100%;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
+  padding: 5px;
   background-color: rgb(8, 111, 143);
   color: white;
   font-weight: 500;
@@ -99,17 +103,19 @@ max-height:100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 2px solid rgb(51, 182, 14); */
+  /* border: 2px solid rgb(20, 201, 246);   */
   /* width: auto;   */
 }
-.stacksDiv2 {
-  display: none;
-}
+/* .stacksDiv2 {
+   display: none;  
+  border: 2px solid salmon;
+} */
 .projInfo {
   width: 90%;
   margin: auto;
   text-align: left;
   overflow: hidden;
+  padding: 2px 0px 2px 0px;
 }
 .projInfo > p {
   font-size: 17px;
@@ -148,24 +154,25 @@ max-height:100%;
   }
 
   .linkCont {
-    display: block;
+    display: flex;
     align-items: center;
-    /* justify-content: space-around; */
-    /* padding: 7px 0; */
-
-    width: 100%;
-    /* border: 2px solid deeppink; */
+    justify-content: space-around;
+    padding: 10px 0;
+    /* border: 2px solid orange; */
   }
 
   .linkDiv {
-    /* border: 2px solid rgb(28, 12, 203); */
-    width: 70%;
+    /* border: 2px solid rgb(28, 12, 203);  */
+    /* width: 30%; */
+    gap: 4px;
+    padding: 10px;
     margin: auto;
   }
 
   .linkDiv p {
-    /* border: 2px solid rgb(12, 203, 18); */
-    width: 30%;
+     /* border: 2px solid rgb(12, 203, 18);  */
+     /* width: 30%; */
+     width: auto;
   }
 
   /* .projInfo {
@@ -178,11 +185,33 @@ max-height:100%;
       display: none;
     } */
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
   .projInfo > p {
     font-size: 17px;
     color: gray;
     /* border: 2px solid rgb(12, 203, 18); */
     text-align: center;
   }
+
+  .linkCont {
+    display: block;
+    align-items: center;
+    /* justify-content: space-around; */
+    /* padding: 7px 0; */
+
+    width: 100%;
+    /* border: 2px solid deeppink; */
+  }
+
+  .linkDiv {
+    /* border: 2px solid rgb(28, 12, 203);  */
+    display: flex;
+    /* justify-content: space-around; */
+    gap: 15px;
+    width: 55%;
+    margin: auto;
+    
+  }
 }
+
+ 

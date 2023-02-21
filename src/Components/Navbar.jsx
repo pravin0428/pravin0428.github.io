@@ -149,6 +149,16 @@ function Navbar() {
               spacing={4}
               //  border="3px solid yellow"
             >
+                <Link
+                to="about"
+                smooth={true}
+                duration={1000}
+                //  activeClass={styles.active}
+                spy={true}
+                hashSpy={true}
+              >
+                <div>About</div>
+              </Link>
               <Link
                 to="skills"
                 smooth={true}

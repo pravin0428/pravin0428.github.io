@@ -12,6 +12,9 @@ import { SiNpm } from "react-icons/si";
 import { SiPostman } from "react-icons/si";
 import { SiExpress } from "react-icons/si";
 import { FaGitAlt } from "react-icons/fa";
+import { SiChakraui } from "react-icons/si";
+import { TbBrandNextjs  } from "react-icons/tb";
+ 
 import Fade from "react-reveal/Fade";
 function SkillsSection() {
   return (
@@ -35,22 +38,6 @@ function SkillsSection() {
             }
           />
           <SkillCard
-            skill="JavaScript"
-            icon={
-              <SiJavascript
-                className={`${styles.skillIcon} ${styles.jsIcon}`}
-              />
-            }
-          />
-          <SkillCard
-            skill="Material Ui"
-            icon={
-              <SiMaterialui
-                className={`${styles.skillIcon} ${styles.muiIcon}`}
-              />
-            }
-          />
-          <SkillCard
             skill="Html"
             icon={
               <SiHtml5 className={`${styles.skillIcon} ${styles.htmlIcon}`} />
@@ -62,6 +49,38 @@ function SkillsSection() {
               <SiCss3 className={`${styles.skillIcon} ${styles.cssIcon}`} />
             }
           />
+          <SkillCard
+            skill="JavaScript"
+            icon={
+              <SiJavascript
+                className={`${styles.skillIcon} ${styles.jsIcon}`}
+              />
+            }
+          />
+           {/* <SkillCard
+            skill="Chakra Ui"
+            icon={
+              <SiChakraui
+                className={`${styles.skillIcon} ${styles.ChakraIcon}`}
+              />
+            }
+          /> */}
+          <SkillCard
+            skill="Material Ui"
+            icon={
+              <SiMaterialui
+                className={`${styles.skillIcon} ${styles.muiIcon}`}
+              />
+            }
+          />
+{/*            
+            <SkillCard
+            skill="Next.js"
+            icon={
+              <TbBrandNextjs className={`${styles.skillIcon} ${styles.nextjsIcon}`} />
+            }
+          /> */}
+
         </div>
         <p>Back-end skills</p>
         <div className={styles.skillsContBack}>
