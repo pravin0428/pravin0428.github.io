@@ -14,7 +14,7 @@ const projects = [
   {
     name: "Trouper.com",
     img: "trouperphoto.png",
-    link: "https://frontend-jet-tau-32.vercel.app/",
+    link: "https://trouper-com.vercel.app/",
     git: "https://github.com/pravin0428/nutty-form-5506",
     about:
       "Upgrade to a curated experience packed with tools and benefits dedicated to businesses. A customer success manager can match you with the perfect talent.",
