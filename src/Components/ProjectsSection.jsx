@@ -17,7 +17,7 @@ const projects = [
     link: "https://trouper-com.vercel.app/",
     git: "https://github.com/pravin0428/nutty-form-5506",
     about:
-      "Upgrade to a curated experience packed with tools and benefits dedicated to businesses. A customer success manager can match you with the perfect talent.",
+      "Unlock endless possibilities for your next project with Troper.com – the ultimate freelancing website. Hire top-rated freelancers or apply for exciting freelance opportunities and take your business to the next level.",
     stacks: [
     <SiReact className={styles.stackIcon} />,
       <SiChakraui className={styles.stackIcon} />,
@@ -31,7 +31,7 @@ const projects = [
     img: "/sephora_poster.png",
     link: "https://sephora-clone-five.vercel.app/",
     git: "https://github.com/pravin0428/Sephora.com-Clone/tree/master",
-    about:"Discover the latest in beauty at Sephora! Explore an unrivalled selection of makeup",
+    about:"E-Commerce Platform: Discover the latest in beauty at Sephora! Explore an unrivaled selection of makeup",
     stacks: [
      <SiReact className={styles.stackIcon} />,
       <SiChakraui className={styles.stackIcon} />,
@@ -47,7 +47,7 @@ const projects = [
     link: "https://admirable-halva-9f908e.netlify.app/",
     git:"https://github.com/pravin0428/YOOX.com-Clone",
     about:
-      "Discover a wide array of products by the best Italian and international designers on YOOX. Fast delivery and secure payments",
+      "Shop the best of Italian and international design on YOOX – the ultimate e-commerce platform. Join the stylish community today and experience fast delivery, secure payments, and top-quality products from the best designers",
     stacks: [
       <SiJavascript className={styles.stackIcon} />,
       <SiHtml5 className={styles.stackIcon} />,

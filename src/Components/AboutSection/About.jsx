@@ -17,12 +17,14 @@ function AboutSection() {
             </h2>
 
             <Text className={styles.text}>
-              full-stack web developer who is analytical and detail-oriented and
-              is capable of writing production-ready code using ReactJS, Redux,
-              and CSS on the frontend and NodeJS and Express on the backend to
-              build an efficient single-page application. passionate about
-              coding and intensely interested in working with a product-based
-              company
+              As a highly skilled full-stack web developer, the individual
+              demonstrates exceptional analytical and detail-oriented
+              capabilities, delivering production-ready code using React, Redux,
+              and CSS on the front-end and Node.js and Express on the back-end
+              with a focus on developing efficient single-page applications.
+              passionate about coding and highly interested in working with a
+              growth-oriented organization that values innovation and
+              collaboration.
             </Text>
           </div>
         </div>

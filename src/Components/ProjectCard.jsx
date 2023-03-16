@@ -28,7 +28,7 @@ export function ProjectCard({ name, img, git, link, stacks, about , duration ,st
         </div>
        <div className={styles.projInfo}>
           <Fade bottom>
-            <p>{about}</p>
+            <p style={{padding : "10px"}} >{about}</p>
           </Fade>
         </div>
         <div className={styles.durationAndStatus} >
