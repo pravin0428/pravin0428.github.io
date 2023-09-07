@@ -1,0 +1,21 @@
+.cont{
+    border: 2px solid black;
+    display: flex;
+    /* justify-content: space-evenly; */
+}
+
+.contHnadler{
+    display: flex;
+    margin: auto;
+    border: 2px solid black; 
+}
+
+.imgDiv{
+    border: 2px solid rgb(236, 32, 32);
+    height: 200px;
+}
+
+.infoDiv{
+    border: 2px solid rgb(18, 157, 212);
+    height: 200px;
+}

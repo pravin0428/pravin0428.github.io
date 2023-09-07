@@ -7,12 +7,14 @@ import Navbar from "./Components/Navbar";
 import Stats from "./Components/Stats/Stats";
 import SkillsSection from "./Components/SkillsSection";
 import {ContactSection} from "./Components/ContactSection"
+import Experience from "./Components/ExperianceSection/Experience";
 function App() {
   return (
     <div className="App">
       <Navbar/>
        <HeroSection/>  
        <About/>
+       <Experience/>
       <SkillsSection/>
       <ProjectsSection/>
       <Stats/>
