@@ -38,7 +38,7 @@ const projects = [
       // <SiCss3 className={styles.stackIcon} />,
     ],
     duration : "5 days",
-    status : "Individual project"
+    status : "Solo project"
   },
   
   {
@@ -62,14 +62,14 @@ const projects = [
     link: "https://my-app-tau-flame.vercel.app/",
     git: "https://github.com/pravin0428/fullstack",
     about:
-        "Costome shop for curd-related product applications",
+        "A responsive and efficient full-stack CRUD application that showcases my development skills, enabling seamless data management and user interaction.",
     stacks: [
       <SiReact className={styles.stackIcon} />,
       <SiChakraui className={styles.stackIcon} />,
       <SiExpress className={styles.stackIcon} />,
     ],
     duration : "3 days",
-    status : "Individual project"
+    status : "Solo project"
   },
   {
     name: "TripBook.com",
@@ -92,7 +92,7 @@ const projects = [
     link: "https://candid-paletas-feef7b.netlify.app",
     git: "https://github.com/chaitanya0319/Collab",
     about:
-      "Examine the stunning selection of earbuds, headphones, earphones, and wireless devices. ",
+      "Examine the stunning selection of earbuds, earphones, headphones, and wireless devices. ",
     stacks: [
     <SiJavascript className={styles.stackIcon} />,
       <SiHtml5 className={styles.stackIcon} />,
