@@ -1,72 +1,75 @@
-.rootCont {
+/* HeroSection.module.css */
+
+.heroContainer {
+  /* background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%); */
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
-  width: 80%;
-   height: auto;  
-  margin: auto;
-  /* gap: 4%; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  margin-top: 4%;
-    /* border: 2px solid red;    */
+  align-items: center;
+  padding: 2rem;
+}
+
+.rootCont {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
 }
 
 .nameCont {
-  width: 100%;
-  font-size: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.greeting {
+  font-size: 1.5rem;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.name {
+  font-size: 3.5rem;
   font-weight: 800;
-  color: rgb(14, 36, 49);
-  /* border: 2px solid rgb(39, 213, 33);    */
-  /* max-height: 60vh;   */
+  color: #1a202c;
+  margin: 0;
+  line-height: 1.2;
 }
 
-.photoCont{
-  height: 80%;
-  /* border: 4px solid rgb(167, 206, 9); */
+.title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0.5rem 0;
 }
 
-.heroImg {
-  /* mar */
-  /* border: 4px solid rgb(221, 235, 25); */
-   height: 100%; 
-  
-  /* border: 4px solid rgb(65, 245, 28); */
- 
+.tagline {
+  font-size: 1.2rem;
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.ctaContainer {
+  margin-top: 2rem;
 }
 
 .socialCont {
   display: flex;
-  margin-top: 5%;
-  width: 100%;
-  justify-content: space-evenly;
-  /* border: 5px solid rgb(238, 15, 231);    */
-}
-.linkedInIcon {
-  font-size: 40px;
-  margin: 0 10px;
- color: rgb(10, 102, 194); 
-  cursor: pointer;
-   
-}
-.linkedInIcon:hover {
-  color: rgb(17, 121, 224) !important;
-}
-.gitIcon {
-  font-size: 40px;
-  margin: 0 10px;
-  cursor: pointer;
-  color: rgb(42, 42, 42);
-}
-.gitIcon:hover {
-  color: rgb(80, 80, 80) !important;
-}
-.contactBtn {
-  color: white;
-  /* background-color: pink ;   */
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .animate {
-  text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
     #231557 0%,
@@ -74,17 +77,13 @@
     #ff1361 67%,
     #fff800 100%
   );
-  background-size: auto auto;
-  background-clip: border-box;
   background-size: 200% auto;
   color: #fff;
   background-clip: text;
-  /* text-fill-color: transparent; */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
+  animation: textclip 3s linear infinite;
   display: inline-block;
-  font-size: 50px;
 }
 
 @keyframes textclip {
@@ -93,123 +92,39 @@
   }
 }
 
-/* hide at small screen */
-
-@media (min-width: 190px) and (max-width: 819px) {
-  .rootCont {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 40px;
-    height: auto;
-    margin: auto;
-    /* border: 4px solid rgb(22, 112, 4); */
-    margin-top: 20px;
-    /* box-shadow: rgba(129, 249, 8, 0.27) 0px -23px 25px 0px inset, rgba(6, 245, 14, 0.15) 0px -36px 30px 0px inset, rgba(3, 211, 65, 0.1) 0px -79px 40px 0px inset, rgba(242, 15, 15, 0.06) 0px 2px 1px, rgba(246, 36, 36, 0.09) 0px 4px 2px, rgba(241, 20, 20, 0.09) 0px 8px 4px, rgba(245, 5, 5, 0.09) 0px 16px 8px, rgba(240, 20, 20, 0.09) 0px 32px 16px;  */
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .name {
+    font-size: 2.5rem;
   }
-  .nameCont {
-    text-align: center;
-    align-items: center;
-    margin: auto;
-    /* border: 4px solid rgb(249, 210, 12); */
-    font-size: 30px;
+  
+  .title {
+    font-size: 1.5rem;
   }
-
-  /* .photoCont{
-    width: 100%;
-  } */
-
-  .heroImg {
-    /* mar */
-    /* border: 4px solid rgb(221, 235, 25); */
-    width: 100%;
-    height: auto;
-    margin: auto;
-    /* border: 4px solid rgb(7, 56, 128); */
-    margin-top: -31px;  
+  
+  .greeting {
+    font-size: 1.2rem;
   }
-
-  /* .contactBtn{
-    size: 15px;
-  } */
-
-  .forwith820Info {
-    /* border: 4px solid rgb(244, 13, 225); */
-    display: none;
-  }
-
-  .linkdn {
-    display: none;
-  }
-  .git {
-    display: none;
+  
+  .tagline {
+    font-size: 1rem;
   }
 }
 
-/* 417-820 */
-@media (min-width: 819px) and (max-width: 989px) {
-  .rootCont {
-    height: auto;
-    /* display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 40px;
-    height: auto; */
-    /* border: 4px solid rgb(13, 20, 20); */
-    /* border: 4px solid rgb(22, 112, 4); */
-    /* box-shadow: rgba(129, 249, 8, 0.27) 0px -23px 25px 0px inset, rgba(6, 245, 14, 0.15) 0px -36px 30px 0px inset, rgba(3, 211, 65, 0.1) 0px -79px 40px 0px inset, rgba(242, 15, 15, 0.06) 0px 2px 1px, rgba(246, 36, 36, 0.09) 0px 4px 2px, rgba(241, 20, 20, 0.09) 0px 8px 4px, rgba(245, 5, 5, 0.09) 0px 16px 8px, rgba(240, 20, 20, 0.09) 0px 32px 16px;  */
+@media (max-width: 480px) {
+  .heroContainer {
+    padding: 1rem;
   }
-  .nameCont {
-    text-align: center;
-    font-size: xx-large;
+  
+  .name {
+    font-size: 2rem;
   }
-  .photoCont {
-    /* border: 4px solid rgb(222, 54, 234); */
-    width: 100%;
-    height: 82%;
-    margin: auto;
-    margin-bottom: 10px;
+  
+  .title {
+    font-size: 1.2rem;
   }
-  .heroImg {
-    /* border: 4px solid rgb(221, 235, 25); */
-    width: 80%;
-    /* size: 90%; */
-    height: 80%;
-    margin: auto;
-    /* margin-top: -60px; */
-  }
-
-  .contactBtn {
-    size: 15px;
-  }
-
-  .forwith820 {
-    /* border: 4px solid rgb(13, 221, 244); */
-    /* height: 100%;   */
-    height: auto;
-  }
-
+  
   .socialCont {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    height: 0px;
-    /* padding: 0%; */
-    /* border: 4px solid rgb(104, 5, 210); */
-    width: 100%;
-    margin: auto;
-  }
-
-  .linkdn {
-    margin: auto;
-    /* border: 4px solid rgb(247, 100, 8); */
-  }
-  .git {
-    margin: auto;
-    /* border: 4px solid rgb(148, 184, 241); */
+    gap: 1rem;
   }
 }
-
-/* @media (min-width: 480px) and (max-width: 803px) {
-    .mainCont{
-        border: 4px solid rgb(240, 20, 229); 
-  }
- 
-  } */

@@ -1,127 +1,240 @@
-import { Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
-import styles from "./HeroSection.module.css";
-import { AiOutlineGithub } from "react-icons/ai";
-import { AiFillLinkedin } from "react-icons/ai";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  Text,
+  Stack,
+  Icon,
+  useColorModeValue,
+  keyframes,
+} from "@chakra-ui/react";
+import { AiOutlineGithub, AiFillLinkedin } from "react-icons/ai";
 import { RiDownloadLine } from "react-icons/ri";
 import Fade from "react-reveal/Fade";
-import { Container } from "semantic-ui-react";
-const useStyles = makeStyles({
-  contactBtn: {
-    color: "white",
-    // border: "5px solid red",
-    backgroundColor: "rgb(8, 111, 143)",
-    width: "auto",
-    height: "45px",
-    "&:hover": {
-      backgroundColor: "rgb(21, 138, 173)",
-    },
-  },
-  linkedInIcon: {
-    fontSize: "40px",
-    color: "rgb(8, 111, 143)",
-    "&:hover": {
-      backgroundColor: "rgb(17, 155, 197)",
-    },
-  },
-  gitIcon: {
-    fontSize: "35px",
-    color: "rgb(42, 42, 42)",
-    "&:hover": {
-      backgroundColor: "rgb(100, 100, 100)",
-    },
-  },
-  a: {
-    textDecoration: "none",
-  },
-});
+
+const float = keyframes`
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+`;
+
 export function HeroSection() {
-  const classes = useStyles();
+  const textColor = useColorModeValue("gray.300", "gray.300");
+  const highlightColor = useColorModeValue("brand.400", "brand.400");
+
   return (
-    <Container  > 
-    <div className={styles.rootCont} id="hero">
-      <Fade>
-        <div className={styles.nameCont}>
-          <p>Hi,</p>
-          <p> I am <span className={styles.animate} >Pravin Mohite</span>{" "}</p>
-          <p style={{marginBottom : "10px"}} > Full Stack Web Developer</p>
-         
-          <a
-            href="https://drive.google.com/file/d/1mbjKLsqqQWV12ZTEy7g5OMC-pFPPujRf/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Box
+      id="hero"
+      position="relative"
+      minH="100vh"
+      display="flex"
+      alignItems="center"
+      pt={16}
+      overflow="hidden"
+      bg="gray.900"
+      _before={{
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: "radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(240, 209, 34, 0.1) 0%, transparent 50%)",
+        zIndex: 0,
+      }}
+    >
+      <Container maxW="container.xl" position="relative" zIndex={1}>
+        <Fade bottom>
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            align="center"
+            justify="space-between"
+            gap={10}
           >
-            <Button variant="contained" className={classes.contactBtn} id="re-button" >
-              <RiDownloadLine
-                style={{
-                  fontSize: "18px",
-                  marginLeft: "10px",
-                  marginRight: "5px",
-                  // border:"2px solid red"
+            <Box flex={1} textAlign={{ base: "center", md: "left" }}>
+              <Text
+                color={highlightColor}
+                fontWeight="bold"
+                fontSize={{ base: "xl", md: "2xl" }}
+                mb={4}
+                textTransform="uppercase"
+                letterSpacing="wide"
+              >
+                Hello, I'm
+              </Text>
+
+              <Heading
+                as="h1"
+                fontSize={{ base: "5xl", md: "6xl", lg: "7xl" }}
+                fontWeight="black"
+                mb={4}
+                lineHeight="shorter"
+                bgGradient="linear(to-r, white, gray.300)"
+                bgClip="text"
+                position="relative"
+                _after={{
+                  content: '""',
+                  position: "absolute",
+                  bottom: "-10px",
+                  left: { base: "50%", md: "0" },
+                  transform: { base: "translateX(-50%)", md: "none" },
+                  width: "100px",
+                  height: "4px",
+                  background: "linear-gradient(90deg, #f0d122 0%, #ffd44d 100%)",
+                  borderRadius: "full",
+                }}
+              >
+                Pravin Mohite
+              </Heading>
+
+              <Heading
+                as="h2"
+                size="xl"
+                bgGradient="linear(to-r, brand.400, brand.200)"
+                bgClip="text"
+                mb={6}
+                fontWeight="bold"
+              >
+                Full Stack Web Developer
+              </Heading>
+
+              <Text
+                fontSize={{ base: "lg", md: "xl" }}
+                color={textColor}
+                maxW="600px"
+                mb={8}
+                mx={{ base: "auto", md: "0" }}
+                lineHeight="tall"
+              >
+                Building digital experiences that matter. I create responsive,
+                performant, and user-friendly web applications with modern
+                technologies.
+              </Text>
+
+              <Stack
+                direction={{ base: "column", sm: "row" }}
+                spacing={4}
+                justify={{ base: "center", md: "flex-start" }}
+                align="center"
+              >
+                <a
+                  href="https://drive.google.com/file/d/1mbjKLsqqQWV12ZTEy7g5OMC-pFPPujRf/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    rightIcon={<RiDownloadLine />}
+                    variant="solid"
+                    boxShadow="0 4px 14px 0 rgba(240, 209, 34, 0.39)"
+                    _hover={{
+                      boxShadow: "0 6px 20px rgba(240, 209, 34, 0.5)",
+                    }}
+                  >
+                    Download Resume
+                  </Button>
+                </a>
+
+                <Stack direction="row" spacing={4}>
+                  <a
+                    href="https://www.linkedin.com/in/pravin-mohite-40b56221b/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Box
+                      as="span"
+                      display="inline-block"
+                      p={3}
+                      borderRadius="lg"
+                      bg="whiteAlpha.100"
+                      backdropFilter="blur(10px)"
+                      border="1px solid"
+                      borderColor="whiteAlpha.200"
+                      _hover={{
+                        bg: "whiteAlpha.200",
+                        transform: "translateY(-2px)",
+                        borderColor: highlightColor,
+                      }}
+                      transition="all 0.3s ease"
+                      cursor="pointer"
+                    >
+                      <Icon
+                        as={AiFillLinkedin}
+                        w={6}
+                        h={6}
+                        color="gray.300"
+                        _hover={{ color: highlightColor }}
+                      />
+                    </Box>
+                  </a>
+                  <a
+                    href="https://github.com/pravin0428"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Box
+                      as="span"
+                      display="inline-block"
+                      p={3}
+                      borderRadius="lg"
+                      bg="whiteAlpha.100"
+                      backdropFilter="blur(10px)"
+                      border="1px solid"
+                      borderColor="whiteAlpha.200"
+                      _hover={{
+                        bg: "whiteAlpha.200",
+                        transform: "translateY(-2px)",
+                        borderColor: highlightColor,
+                      }}
+                      transition="all 0.3s ease"
+                      cursor="pointer"
+                    >
+                      <Icon
+                        as={AiOutlineGithub}
+                        w={6}
+                        h={6}
+                        color="gray.300"
+                        _hover={{ color: highlightColor }}
+                      />
+                    </Box>
+                  </a>
+                </Stack>
+              </Stack>
+            </Box>
+
+            {/* Decorative element */}
+            <Box
+              flex={1}
+              display={{ base: "none", lg: "block" }}
+              position="relative"
+            >
+              <Box
+                w="400px"
+                h="400px"
+                borderRadius="full"
+                bg="transparent"
+                border="2px solid"
+                borderColor="whiteAlpha.100"
+                position="relative"
+                animation={`${float} 6s ease-in-out infinite`}
+                _before={{
+                  content: '""',
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: "300px",
+                  height: "300px",
+                  borderRadius: "full",
+                  background: "radial-gradient(circle, rgba(240, 209, 34, 0.1) 0%, transparent 70%)",
+                  filter: "blur(40px)",
                 }}
               />
-              Resume
-            </Button>
-          </a>
-        </div>
-        <div className={styles.forwith820} >
-       
-        <div className={styles.photoCont}>
-          <img
-            className={styles.heroImg}
-            src="https://camo.githubusercontent.com/e4a569755580f96dce0e6d65bc761e0d9aef0fecae524ec73a1b0be60fc934fa/68747470733a2f2f7777772e6d79676f2e67652f75706c6f6164732f626c6f672f313538343032333739352e6a7067"
-            alt="profile"
-           />
-        </div>
-
-        <div className={styles.socialCont}>
-          <div className={styles.linkdn} >
-          <a
-            rel="noreferrer"
-            href="https://www.linkedin.com/in/pravin-mohite-40b56221b/"
-            className={classes.a}
-            target="_blank"
-          >
-            <AiFillLinkedin className={styles.linkedInIcon} />
-          </a>
-          </div>
-          <div className={styles.git} >
-          <a
-            rel="noreferrer"
-            href="https://github.com/pravin0428"
-            className={classes.a}
-            target="_blank"
-          >
-            <AiOutlineGithub className={styles.gitIcon} />
-          </a>
-          </div>
-          
-         
-        </div>
-
-        </div>
-         
-        
-      </Fade>
-    </div>
-    {/* <div className={styles.socialCont}>
-          <a
-            rel="noreferrer"
-            href="https://www.linkedin.com/in/pravin-mohite-40b56221b/"
-            className={classes.a}
-            target="_blank"
-          >
-            <AiFillLinkedin className={styles.linkedInIcon} />
-          </a>
-          <a
-            rel="noreferrer"
-            href="https://github.com/pravin0428"
-            className={classes.a}
-            target="_blank"
-          >
-            <AiOutlineGithub className={styles.gitIcon} />
-          </a>
-        </div> */}
-    </Container>
+            </Box>
+          </Flex>
+        </Fade>
+      </Container>
+    </Box>
   );
 }

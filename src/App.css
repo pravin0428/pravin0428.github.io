@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  position: relative;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -32,7 +34,24 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+/* src/App.css */
+
+
+
+/* Optional: smooth transition for background changes */
+.App {
+  transition: background-image 0.3s ease;
+}
+
+canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }

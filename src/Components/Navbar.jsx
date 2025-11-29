@@ -2,209 +2,145 @@ import { Link } from "react-scroll";
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   IconButton,
   Button,
-  Menu,
-  MenuButton,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
   Stack,
+  Text,
+  Container,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const bg = useColorModeValue("gray.900", "gray.900");
+  const borderColor = useColorModeValue("gray.700", "gray.700");
+
+  const navLinks = [
+    { name: "Home", to: "hero" },
+    { name: "About", to: "about" },
+    { name: "Skills", to: "skills" },
+    { name: "Projects", to: "projects" },
+    { name: "Contact", to: "contact" },
+  ];
 
   return (
     <>
       <Box
-        bg={useColorModeValue("#35383d", "#35383d")}
+        bg={bg}
         px={4}
-        bgPos={"center"}
-        bgSize="cover"
-        pos="fixed"
+        position="fixed"
         w="100%"
-        zIndex={1}
-        color="#f0d122"
-        borderBottom="1px solid white"
+        zIndex={100}
+        borderBottom="1px solid"
+        borderColor={borderColor}
+        boxShadow="sm"
+        as="header"
       >
-        <Flex
-          h={16}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          w={"90%"}
-          margin="auto"
-        >
-          <IconButton
-            size={"md"}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={"Open Menu"}
-            display={{ md: "none" }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-          <HStack spacing={8} alignItems={"center"}>
-            <Box>
+        <Container maxW="container.xl">
+          <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+            {/* Logo */}
+            <Box fontWeight="bold" fontSize="xl" color="brand.400" cursor="pointer">
               <Link
                 to="hero"
                 smooth={true}
                 duration={1000}
                 spy={true}
                 hashSpy={true}
-                // activeClass={styles.active}
               >
-                <div>Home</div>
+                Pravin Mohite
               </Link>
             </Box>
-            <HStack
-              as={"nav"}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-            >
-              <Link
-                to="about"
-                smooth={true}
-                duration={1000}
-                //  activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div>About</div>
-              </Link>
 
-              <Link
-                to="skills"
-                smooth={true}
-                duration={1000}
-                // activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div>Skills</div>
-              </Link>
-
-              <Link
-                to="projects"
-                smooth={true}
-                duration={1000}
-                // activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div>Projects</div>
-              </Link>
-
-              <Link
-                to="contact"
-                smooth={true}
-                duration={1000}
-                // activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div>Contact</div>
-              </Link>
-
-              <a
-                href="https://drive.google.com/file/d/1mbjKLsqqQWV12ZTEy7g5OMC-pFPPujRf/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div>Resume</div>
-              </a>
-            </HStack>
-          </HStack>
-          <Flex alignItems={"center"}>
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={"full"}
-                variant={"link"}
-                cursor={"pointer"}
-                minW={0}
-              >
-                <Avatar size={"sm"} src={"p_image.jpeg"} />
-              </MenuButton>
-              {/* <MenuList>
-                 <MenuItem   >Link 1</MenuItem>   
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
-              </MenuList> */}
-            </Menu>
-          </Flex>
-        </Flex>
-
-        {isOpen ? (
-          <Box
-            pb={4}
-            display={{ md: "none" }}
-
-            //  border="2px solid green"
-          >
-            <Stack
-              as={"nav"}
-              spacing={4}
-              //  border="3px solid yellow"
-            >
+            {/* Desktop Nav */}
+            <HStack spacing={8} display={{ base: "none", md: "flex" }}>
+              {navLinks.map((link) => (
                 <Link
-                to="about"
-                smooth={true}
-                duration={1000}
-                //  activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div>About</div>
-              </Link>
-              <Link
-                to="skills"
-                smooth={true}
-                duration={1000}
-                // activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div>Skills</div>
-              </Link>
+                  key={link.to}
+                  to={link.to}
+                  smooth={true}
+                  duration={800}
+                  spy={true}
+                  hashSpy={true}
+                  offset={-64}
+                >
+                  <Text
+                    cursor="pointer"
+                    fontWeight="medium"
+                    color="gray.300"
+                    _hover={{ color: "brand.400" }}
+                    _active={{ color: "brand.400" }}
+                    transition="all 0.2s"
+                  >
+                    {link.name}
+                  </Text>
+                </Link>
+              ))}
+            </HStack>
 
-              <Link
-                to="projects"
-                smooth={true}
-                duration={1000}
-                // activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div>Projects</div>
-              </Link>
-
-              <Link
-                to="contact"
-                smooth={true}
-                duration={1000}
-                // activeClass={styles.active}
-                spy={true}
-                hashSpy={true}
-              >
-                <div>Contact</div>
-              </Link>
-
+            {/* Right Side (Resume + Mobile Toggle) */}
+            <HStack spacing={4}>
               <a
                 href="https://drive.google.com/file/d/1mbjKLsqqQWV12ZTEy7g5OMC-pFPPujRf/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{ display: "contents" }}
               >
-                <div>Resume</div>
+                <Button
+                  size="sm"
+                  variant="solid"
+                  display={{ base: "none", md: "flex" }}
+                >
+                  Resume
+                </Button>
               </a>
-            </Stack>
-          </Box>
-        ) : null}
-      </Box>
 
-      <Box p={10}></Box>
+              <IconButton
+                size={"md"}
+                icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                aria-label={"Toggle Menu"}
+                display={{ md: "none" }}
+                onClick={isOpen ? onClose : onOpen}
+                variant="ghost"
+                color="white"
+                _hover={{ bg: "whiteAlpha.200" }}
+              />
+            </HStack>
+          </Flex>
+
+          {/* Mobile Nav */}
+          {isOpen ? (
+            <Box pb={4} display={{ md: "none" }}>
+              <Stack as="nav" spacing={4}>
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    smooth={true}
+                    duration={800}
+                    spy={true}
+                    hashSpy={true}
+                    offset={-64}
+                    onClick={onClose}
+                  >
+                    <Text
+                      cursor="pointer"
+                      fontWeight="medium"
+                      color="gray.300"
+                      _hover={{ color: "brand.400" }}
+                      py={2}
+                    >
+                      {link.name}
+                    </Text>
+                  </Link>
+                ))}
+              </Stack>
+            </Box>
+          ) : null}
+        </Container>
+      </Box>
     </>
   );
 }
