@@ -3,19 +3,20 @@ import {
   Container,
   Heading,
   SimpleGrid,
-  useColorModeValue,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 import { ProjectCard } from "./ProjectCard";
 import {
   SiJavascript,
-  SiHtml5,
-  SiCss3,
   SiReact,
   SiChakraui,
   SiExpress,
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
-import { FadeInWhenVisible, StaggerContainer, RollingCubeItem } from "./AnimationWrappers";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const projects = [
   {
@@ -41,28 +42,6 @@ const projects = [
     status: "Solo project",
   },
   {
-    name: "YOOX.com-Clone",
-    img: "/yooxposter.png",
-    link: "https://admirable-halva-9f908e.netlify.app/",
-    git: "https://github.com/pravin0428/YOOX.com-Clone",
-    about:
-      "Shop the best of Italian and international design on YOOX – the ultimate e-commerce platform. Join the stylish community today and experience fast delivery.",
-    stacks: [<SiJavascript />, <SiHtml5 />, <SiCss3 />],
-    duration: "5 days",
-    status: "Group project",
-  },
-  {
-    name: "Full-stack-curd-app",
-    img: "/fullStack-pic.png",
-    link: "https://my-app-tau-flame.vercel.app/",
-    git: "https://github.com/pravin0428/fullstack",
-    about:
-      "A responsive and efficient full-stack CRUD application that showcases my development skills, enabling seamless data management and user interaction.",
-    stacks: [<SiReact />, <SiChakraui />, <SiExpress />],
-    duration: "3 days",
-    status: "Solo project",
-  },
-  {
     name: "TripBook.com",
     img: "/tripbook-pic.png",
     link: "https://tripbook.vercel.app/",
@@ -73,70 +52,58 @@ const projects = [
     duration: "5 days",
     status: "Group project",
   },
-  {
-    name: "Boat-lifestyle.com clone",
-    img: "/boatPoster.png",
-    link: "https://candid-paletas-feef7b.netlify.app",
-    git: "https://github.com/chaitanya0319/Collab",
-    about:
-      "Examine the stunning selection of earbuds, earphones, headphones, and wireless devices. Experience high-quality sound and style.",
-    stacks: [<SiJavascript />, <SiHtml5 />, <SiCss3 />],
-    duration: "5 days",
-    status: "Group project",
-  },
 ];
 
 export function ProjectsSection() {
-  const highlightColor = useColorModeValue("brand.400", "brand.400");
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.from(".project-card", {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 70%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 100,
+      scale: 0.9,
+      stagger: 0.1,
+      duration: 1.2,
+      ease: "power4.out",
+    });
+  }, { scope: containerRef });
 
   return (
     <Box
       id="projects"
+      ref={containerRef}
       bg="gray.900"
-      py={20}
+      py={32}
       position="relative"
-      _before={{
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        background: "radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%)",
-        zIndex: 0,
-      }}
+      overflow="hidden"
     >
       <Container maxW="container.xl" position="relative" zIndex={1}>
-        <FadeInWhenVisible>
+        <VStack spacing={8} mb={20}>
           <Heading
             as="h2"
             size="2xl"
+            className="text-gradient"
             textAlign="center"
-            mb={16}
-            position="relative"
-            _after={{
-              content: '""',
-              display: "block",
-              width: "80px",
-              height: "4px",
-              bg: highlightColor,
-              margin: "0.5rem auto 0",
-              borderRadius: "full",
-            }}
           >
-            Projects
+            Featured Projects
           </Heading>
-        </FadeInWhenVisible>
+          
+          <Text color="gray.400" maxW="600px" textAlign="center" fontSize="lg">
+            Projects I built at the start of my journey while learning web development—
+            from full-stack applications to high-fidelity frontend clones.
+          </Text>
+        </VStack>
 
-        <StaggerContainer staggerDelay={0.15}>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8} style={{ perspective: "1000px" }}>
-            {projects.map((project, index) => (
-              <RollingCubeItem key={index}>
-                <ProjectCard {...project} />
-              </RollingCubeItem>
-            ))}
-          </SimpleGrid>
-        </StaggerContainer>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </SimpleGrid>
       </Container>
     </Box>
   );

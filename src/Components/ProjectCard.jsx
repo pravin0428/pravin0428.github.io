@@ -5,12 +5,15 @@ import {
   Text,
   Stack,
   Button,
-  useColorModeValue,
   Flex,
   Badge,
   HStack,
+  Icon,
 } from "@chakra-ui/react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export function ProjectCard({
   name,
@@ -22,40 +25,79 @@ export function ProjectCard({
   duration,
   status,
 }) {
-  const highlightColor = useColorModeValue("brand.400", "brand.400");
+  const cardRef = useRef(null);
+  const highlightColor = "brand.400";
+
+  useGSAP(() => {
+    const card = cardRef.current;
+    
+    const onMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      const { left, top, width, height } = card.getBoundingClientRect();
+      const x = (clientX - left) / width - 0.5;
+      const y = (clientY - top) / height - 0.5;
+
+      gsap.to(card, {
+        rotationY: x * 15,
+        rotationX: -y * 15,
+        transformPerspective: 1000,
+        ease: "power2.out",
+        duration: 0.5,
+      });
+    };
+
+    const onMouseLeave = () => {
+      gsap.to(card, {
+        rotationY: 0,
+        rotationX: 0,
+        ease: "power2.out",
+        duration: 0.5,
+      });
+    };
+
+    card.addEventListener("mousemove", onMouseMove);
+    card.addEventListener("mouseleave", onMouseLeave);
+
+    return () => {
+      card.removeEventListener("mousemove", onMouseMove);
+      card.removeEventListener("mouseleave", onMouseLeave);
+    };
+  }, { scope: cardRef });
 
   return (
     <Box
-      bg="gray.800"
-      border="1px solid"
-      borderColor="gray.700"
-      borderRadius="xl"
+      ref={cardRef}
+      h="100%"
+      className="glass project-card"
+      borderRadius="2xl"
       overflow="hidden"
-      transition="all 0.4s ease"
-      _hover={{
-        transform: "translateY(-8px)",
-        borderColor: highlightColor,
-        boxShadow: `0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(240, 209, 34, 0.3)`,
-      }}
+      border="1px solid"
+      borderColor="whiteAlpha.100"
       display="flex"
       flexDirection="column"
-      h="100%"
+      transition="border-color 0.3s ease, box-shadow 0.3s ease"
+      _hover={{
+        borderColor: "brand.400",
+        boxShadow: "0 0 30px rgba(139, 92, 246, 0.2)",
+      }}
+      style={{ transformStyle: "preserve-3d" }}
     >
-      <Box position="relative" overflow="hidden" bg="gray.900">
+      <Box position="relative" overflow="hidden" h="220px">
         <Image
           src={img}
           alt={name}
           w="100%"
-          h="200px"
+          h="100%"
           objectFit="cover"
-          transition="transform 0.4s ease"
-          _hover={{ transform: "scale(1.1)" }}
+          transition="transform 0.5s ease"
+          _groupHover={{ transform: "scale(1.1)" }}
         />
         <Box
           position="absolute"
-          top={2}
-          right={2}
-          bg="rgba(0,0,0,0.8)"
+          top={4}
+          right={4}
+          bg="rgba(0,0,0,0.7)"
+          backdropFilter="blur(8px)"
           color="white"
           px={3}
           py={1}
@@ -63,40 +105,42 @@ export function ProjectCard({
           fontSize="xs"
           fontWeight="bold"
           border="1px solid"
-          borderColor="gray.700"
+          borderColor="whiteAlpha.200"
         >
           {status}
         </Box>
       </Box>
 
-      <Stack p={6} spacing={4} flex={1}>
+      <Stack p={6} spacing={5} flex={1}>
         <Flex justify="space-between" align="center">
-          <Heading as="h3" size="md" noOfLines={1} color="white">
+          <Heading as="h3" size="md" color="white" letterSpacing="tight">
             {name}
           </Heading>
           <Badge
-            colorScheme="yellow"
-            variant="solid"
+            bg="brand.400"
+            color="gray.900"
             px={2}
             py={1}
             borderRadius="md"
+            fontSize="2xs"
+            fontWeight="black"
           >
             {duration}
           </Badge>
         </Flex>
 
-        <Text fontSize="sm" color="gray.300" noOfLines={3} lineHeight="tall">
+        <Text fontSize="sm" color="gray.400" lineHeight="tall" noOfLines={3}>
           {about}
         </Text>
 
-        <HStack spacing={3} wrap="wrap" pt={2}>
+        <HStack spacing={4} pt={2}>
           {stacks.map((stack, index) => (
             <Box
               key={index}
-              color="gray.400"
-              fontSize="2xl"
+              color="gray.500"
+              fontSize="xl"
+              _hover={{ color: "brand.400", transform: "scale(1.2)" }}
               transition="all 0.2s ease"
-              _hover={{ color: highlightColor, transform: "scale(1.2)" }}
             >
               {stack}
             </Box>
@@ -112,18 +156,19 @@ export function ProjectCard({
             target="_blank"
             rel="noreferrer"
             leftIcon={<FaGithub />}
-            variant="outline"
-            size="sm"
+            variant="ghost"
+            size="md"
             flex={1}
-            borderColor="gray.600"
-            color="white"
+            color="whiteAlpha.700"
+            border="1px solid"
+            borderColor="whiteAlpha.100"
             _hover={{
-              bg: "gray.700",
-              borderColor: highlightColor,
-              transform: "translateY(-2px)",
+              bg: "whiteAlpha.100",
+              color: "brand.400",
+              borderColor: "brand.400",
             }}
           >
-            Code
+            Github
           </Button>
           <Button
             as="a"
@@ -131,12 +176,17 @@ export function ProjectCard({
             target="_blank"
             rel="noreferrer"
             leftIcon={<FaExternalLinkAlt />}
-            variant="solid"
-            size="sm"
+            bg="brand.400"
+            color="gray.900"
+            size="md"
             flex={1}
-            boxShadow="0 4px 14px 0 rgba(240, 209, 34, 0.25)"
+            _hover={{
+              bg: "brand.300",
+              transform: "translateY(-2px)",
+              boxShadow: "0 10px 20px rgba(139, 92, 246, 0.4)",
+            }}
           >
-            Demo
+            Launch
           </Button>
         </HStack>
       </Stack>

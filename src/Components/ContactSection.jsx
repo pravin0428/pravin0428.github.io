@@ -7,7 +7,6 @@ import {
   Input,
   Textarea,
   Button,
-  useColorModeValue,
   HStack,
   VStack,
   Icon,
@@ -18,9 +17,15 @@ import { AiOutlineMail, AiOutlineGithub, AiFillLinkedin } from "react-icons/ai";
 import { FaPhone } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
-import Fade from "react-reveal/Fade";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export function ContactSection() {
+  const containerRef = useRef(null);
+  const formRef = useRef(null);
+  const infoRef = useRef(null);
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
     emailjs
@@ -32,246 +37,242 @@ export function ContactSection() {
       )
       .then(
         (result) => {
-          console.log(result.text);
           Swal.fire({
             icon: "success",
-            title: "Message Sent Successfully",
+            title: "Message Sent!",
+            background: "#1a202c",
+            color: "#fff",
+            confirmButtonColor: "#8b5cf6",
           });
         },
         (error) => {
-          console.log(error.text);
           Swal.fire({
             icon: "error",
-            title: "Ooops, something went wrong",
+            title: "Error",
             text: error.text,
+            background: "#1a202c",
+            color: "#fff",
           });
         }
       );
     e.target.reset();
   };
 
-  const textColor = useColorModeValue("gray.300", "gray.300");
-  const highlightColor = useColorModeValue("brand.400", "brand.400");
-  const inputBg = useColorModeValue("gray.800", "gray.800");
-  const inputBorder = useColorModeValue("gray.700", "gray.700");
+  useGSAP(() => {
+    gsap.from([formRef.current, infoRef.current], {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power3.out",
+    });
+  }, { scope: containerRef });
+
+  const highlightColor = "brand.400";
 
   return (
     <Box
       id="contact"
+      ref={containerRef}
       bg="gray.900"
-      py={20}
+      py={32}
       position="relative"
-      _before={{
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        background: "radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%)",
-        zIndex: 0,
-      }}
+      overflow="hidden"
     >
       <Container maxW="container.xl" position="relative" zIndex={1}>
-        <Fade bottom>
-          <Heading
-            as="h2"
-            size="2xl"
-            textAlign="center"
-            mb={16}
-            color="white"
-            position="relative"
-            _after={{
-              content: '""',
-              display: "block",
-              width: "80px",
-              height: "4px",
-              bg: highlightColor,
-              margin: "0.5rem auto 0",
-              borderRadius: "full",
-            }}
+        <Heading
+          as="h2"
+          size="2xl"
+          textAlign="center"
+          mb={20}
+          className="text-gradient"
+        >
+          Let's Build Something
+        </Heading>
+
+        <Stack
+          direction={{ base: "column", lg: "row" }}
+          spacing={16}
+          align="stretch"
+        >
+          {/* Contact Form */}
+          <Box 
+            ref={formRef} 
+            flex={1} 
+            className="glass" 
+            p={10} 
+            borderRadius="3xl"
+            border="1px solid"
+            borderColor="whiteAlpha.100"
           >
-            Get In Touch
-          </Heading>
-
-          <Stack
-            direction={{ base: "column", lg: "row" }}
-            spacing={12}
-            align="stretch"
-          >
-            {/* Contact Form */}
-            <Box flex={1}>
-              <form onSubmit={handleOnSubmit}>
-                <VStack spacing={6}>
-                  <FormControl isRequired>
-                    <FormLabel color="white">Name</FormLabel>
-                    <Input
-                      name="from_name"
-                      placeholder="Your name"
-                      bg={inputBg}
-                      border="1px solid"
-                      borderColor={inputBorder}
-                      color="white"
-                      _placeholder={{ color: "gray.500" }}
-                      _hover={{ borderColor: highlightColor }}
-                      _focus={{
-                        borderColor: highlightColor,
-                        boxShadow: `0 0 0 1px ${highlightColor}`,
-                      }}
-                      size="lg"
-                    />
-                  </FormControl>
-
-                  <FormControl isRequired>
-                    <FormLabel color="white">Email</FormLabel>
-                    <Input
-                      name="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      bg={inputBg}
-                      border="1px solid"
-                      borderColor={inputBorder}
-                      color="white"
-                      _placeholder={{ color: "gray.500" }}
-                      _hover={{ borderColor: highlightColor }}
-                      _focus={{
-                        borderColor: highlightColor,
-                        boxShadow: `0 0 0 1px ${highlightColor}`,
-                      }}
-                      size="lg"
-                    />
-                  </FormControl>
-
-                  <FormControl isRequired>
-                    <FormLabel color="white">Message</FormLabel>
-                    <Textarea
-                      name="message"
-                      placeholder="Your message..."
-                      bg={inputBg}
-                      border="1px solid"
-                      borderColor={inputBorder}
-                      color="white"
-                      _placeholder={{ color: "gray.500" }}
-                      _hover={{ borderColor: highlightColor }}
-                      _focus={{
-                        borderColor: highlightColor,
-                        boxShadow: `0 0 0 1px ${highlightColor}`,
-                      }}
-                      rows={6}
-                      size="lg"
-                    />
-                  </FormControl>
-
-                  <Button
-                    type="submit"
+            <form onSubmit={handleOnSubmit}>
+              <VStack spacing={8}>
+                <FormControl isRequired>
+                  <FormLabel color="whiteAlpha.700" fontSize="sm" fontWeight="bold" textTransform="uppercase" letterSpacing="widest">Name</FormLabel>
+                  <Input
+                    name="from_name"
+                    placeholder="Your Full Name"
+                    bg="whiteAlpha.50"
+                    border="1px solid"
+                    borderColor="whiteAlpha.100"
+                    color="white"
+                    _placeholder={{ color: "gray.600" }}
+                    _hover={{ borderColor: highlightColor }}
+                    _focus={{
+                      borderColor: highlightColor,
+                      boxShadow: `0 0 20px rgba(139, 92, 246, 0.2)`,
+                      bg: "whiteAlpha.100",
+                    }}
                     size="lg"
-                    width="100%"
-                    variant="solid"
-                    _hover={{ transform: "translateY(-2px)", boxShadow: "xl" }}
-                    transition="all 0.3s ease"
-                  >
-                    Send Message
-                  </Button>
-                </VStack>
-              </form>
-            </Box>
+                    borderRadius="xl"
+                    h={14}
+                  />
+                </FormControl>
 
-            {/* Contact Info */}
-            <Box flex={1}>
-              <VStack spacing={8} align="stretch" h="100%" justify="center">
-                <Box>
-                  <Text fontSize="xl" color="white" mb={4} fontWeight="bold">
-                    Let's Connect
-                  </Text>
-                  <Text fontSize="md" color={textColor} lineHeight="tall">
-                    Did you enjoy my work? Want to get in touch? Feel free to
-                    reach out to me through any of the channels below.
-                  </Text>
-                </Box>
+                <FormControl isRequired>
+                  <FormLabel color="whiteAlpha.700" fontSize="sm" fontWeight="bold" textTransform="uppercase" letterSpacing="widest">Email</FormLabel>
+                  <Input
+                    name="email"
+                    type="email"
+                    placeholder="yourmail@example.com"
+                    bg="whiteAlpha.50"
+                    border="1px solid"
+                    borderColor="whiteAlpha.100"
+                    color="white"
+                    _placeholder={{ color: "gray.600" }}
+                    _hover={{ borderColor: highlightColor }}
+                    _focus={{
+                      borderColor: highlightColor,
+                      boxShadow: `0 0 20px rgba(139, 92, 246, 0.2)`,
+                      bg: "whiteAlpha.100",
+                    }}
+                    size="lg"
+                    borderRadius="xl"
+                    h={14}
+                  />
+                </FormControl>
 
-                <VStack align="stretch" spacing={4}>
-                  <HStack spacing={4}>
-                    <Icon
-                      as={AiOutlineMail}
-                      w={6}
-                      h={6}
-                      color={highlightColor}
-                    />
-                    <Box>
-                      <Text fontSize="sm" color="gray.500">
-                        Email
-                      </Text>
-                      <Text color="white" fontSize="md">
-                        mohite461998@gmail.com
-                      </Text>
-                    </Box>
-                  </HStack>
+                <FormControl isRequired>
+                  <FormLabel color="whiteAlpha.700" fontSize="sm" fontWeight="bold" textTransform="uppercase" letterSpacing="widest">Message</FormLabel>
+                  <Textarea
+                    name="message"
+                    placeholder="Tell me about your project..."
+                    bg="whiteAlpha.50"
+                    border="1px solid"
+                    borderColor="whiteAlpha.100"
+                    color="white"
+                    _placeholder={{ color: "gray.600" }}
+                    _hover={{ borderColor: highlightColor }}
+                    _focus={{
+                      borderColor: highlightColor,
+                      boxShadow: `0 0 20px rgba(139, 92, 246, 0.2)`,
+                      bg: "whiteAlpha.100",
+                    }}
+                    rows={6}
+                    size="lg"
+                    borderRadius="xl"
+                    pt={4}
+                  />
+                </FormControl>
 
-                  <HStack spacing={4}>
-                    <Icon as={FaPhone} w={6} h={6} color={highlightColor} />
-                    <Box>
-                      <Text fontSize="sm" color="gray.500">
-                        Phone
-                      </Text>
-                      <Text color="white" fontSize="md">
-                        +91 8766535472
-                      </Text>
-                    </Box>
-                  </HStack>
-                </VStack>
-
-                <Box>
-                  <Text fontSize="md" color="white" mb={4} fontWeight="bold">
-                    Social Media
-                  </Text>
-                  <HStack spacing={6}>
-                    <a
-                      href="https://www.linkedin.com/in/pravin-mohite-40b56221b/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Icon
-                        as={AiFillLinkedin}
-                        w={8}
-                        h={8}
-                        color="gray.400"
-                        _hover={{ color: highlightColor, transform: "scale(1.1)" }}
-                        transition="all 0.2s"
-                        cursor="pointer"
-                      />
-                    </a>
-                    <a
-                      href="https://github.com/pravin0428"
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      <Icon
-                        as={AiOutlineGithub}
-                        w={8}
-                        h={8}
-                        color="gray.400"
-                        _hover={{ color: highlightColor, transform: "scale(1.1)" }}
-                        transition="all 0.2s"
-                        cursor="pointer"
-                      />
-                    </a>
-                    <a href="mailto:mohite461998@gmail.com">
-                      <Icon
-                        as={AiOutlineMail}
-                        w={8}
-                        h={8}
-                        color="gray.400"
-                        _hover={{ color: highlightColor, transform: "scale(1.1)" }}
-                        transition="all 0.2s"
-                        cursor="pointer"
-                      />
-                    </a>
-                  </HStack>
-                </Box>
+                <Button
+                  type="submit"
+                  size="lg"
+                  width="100%"
+                  bg="brand.400"
+                  color="gray.900"
+                  h={14}
+                  fontWeight="black"
+                  textTransform="uppercase"
+                  letterSpacing="widest"
+                  _hover={{ 
+                    transform: "translateY(-3px)", 
+                    boxShadow: "0 10px 25px rgba(139, 92, 246, 0.4)",
+                    bg: "brand.300"
+                  }}
+                  transition="all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+                >
+                  Send Message
+                </Button>
               </VStack>
-            </Box>
-          </Stack>
-        </Fade>
+            </form>
+          </Box>
+
+          {/* Contact Info */}
+          <Box ref={infoRef} flex={0.8}>
+            <VStack spacing={12} align="stretch" h="100%" justify="center">
+              <Box>
+                <Text fontSize="2xl" color="white" mb={4} fontWeight="black" letterSpacing="tight">
+                  Let's Connect
+                </Text>
+                <Text fontSize="lg" color="gray.400" lineHeight="tall">
+                  I'm always open to discussing new projects, creative ideas or 
+                  opportunities to be part of your visions.
+                </Text>
+              </Box>
+
+              <VStack align="stretch" spacing={8}>
+                <HStack spacing={6}>
+                  <Box p={4} borderRadius="2xl" className="glass" border="1px solid" borderColor="whiteAlpha.100">
+                    <Icon as={AiOutlineMail} w={6} h={6} color={highlightColor} />
+                  </Box>
+                  <Box>
+                    <Text fontSize="xs" color="gray.500" fontWeight="bold" textTransform="uppercase" letterSpacing="widest">Email Me</Text>
+                    <Text color="white" fontSize="lg" fontWeight="semibold">mohite461998@gmail.com</Text>
+                  </Box>
+                </HStack>
+
+                <HStack spacing={6}>
+                  <Box p={4} borderRadius="2xl" className="glass" border="1px solid" borderColor="whiteAlpha.100">
+                    <Icon as={FaPhone} w={6} h={6} color={highlightColor} />
+                  </Box>
+                  <Box>
+                    <Text fontSize="xs" color="gray.500" fontWeight="bold" textTransform="uppercase" letterSpacing="widest">Call Me</Text>
+                    <Text color="white" fontSize="lg" fontWeight="semibold">+91 8766535472</Text>
+                  </Box>
+                </HStack>
+              </VStack>
+
+              <Box>
+                <Text fontSize="sm" color="whiteAlpha.600" mb={6} fontWeight="bold" textTransform="uppercase" letterSpacing="widest">
+                  Find me on
+                </Text>
+                <HStack spacing={6}>
+                  {[
+                    { icon: AiFillLinkedin, url: "https://www.linkedin.com/in/pravin-mohite-40b56221b/" },
+                    { icon: AiOutlineGithub, url: "https://github.com/pravin0428" },
+                    { icon: AiOutlineMail, url: "mailto:mohite461998@gmail.com" }
+                  ].map((social, i) => (
+                    <a key={i} href={social.url} target="_blank" rel="noreferrer">
+                      <Box
+                        p={5}
+                        borderRadius="2xl"
+                        className="glass"
+                        _hover={{
+                          bg: "whiteAlpha.200",
+                          transform: "translateY(-5px) rotate(5deg)",
+                          color: highlightColor,
+                          borderColor: highlightColor,
+                        }}
+                        transition="all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+                        cursor="pointer"
+                        border="1px solid"
+                        borderColor="whiteAlpha.100"
+                      >
+                        <Icon as={social.icon} w={7} h={7} color="gray.400" />
+                      </Box>
+                    </a>
+                  ))}
+                </HStack>
+              </Box>
+            </VStack>
+          </Box>
+        </Stack>
       </Container>
     </Box>
   );

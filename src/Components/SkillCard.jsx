@@ -1,138 +1,48 @@
 import { Box, VStack, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { FaQuestion } from "react-icons/fa";
 
 const MotionBox = motion(Box);
 
-export default function SkillCard({ name, icon, gameMode = false, onReveal, showHint = false }) {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [hasBeenRevealed, setHasBeenRevealed] = useState(false);
-
-  // When gameMode starts, flip all cards to hidden (question mark)
-  useEffect(() => {
-    if (gameMode) {
-      setIsFlipped(true); // Show question mark side
-      setHasBeenRevealed(false); // Reset reveal state
-    } else {
-      setIsFlipped(false); // Show skill side (default)
-      setHasBeenRevealed(false);
-    }
-  }, [gameMode]);
-
-  const handleClick = () => {
-    if (gameMode && isFlipped && !hasBeenRevealed) {
-      setIsFlipped(false); // Reveal the skill
-      setHasBeenRevealed(true);
-      if (onReveal) {
-        onReveal(); // Notify parent component
-      }
-    }
-  };
-
-  //Show hint pulse for unrevealed cards
-  const shouldPulse = showHint && gameMode && isFlipped && !hasBeenRevealed;
-
+export default function SkillCard({ name, icon, color = "#f0d122" }) {
   return (
-    <Box
+    <MotionBox
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
       h="150px"
-      perspective="1000px"
-      cursor={gameMode ? "pointer" : "default"}
-      onClick={handleClick}
+      p={4}
+      bg="gray.800"
+      border="2px solid"
+      borderColor="gray.700"
+      borderRadius="xl"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      cursor="default"
+      role="group"
+      boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
+      _hover={{
+        borderColor: color,
+        boxShadow: `0 10px 30px ${color}33`,
+      }}
+      sx={{ transition: "border-color 0.3s ease, box-shadow 0.3s ease" }}
     >
-      <MotionBox
-        position="relative"
-        w="100%"
-        h="100%"
-        style={{ transformStyle: "preserve-3d" }}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-      >
-        {/* Front - The Skill (default visible) */}
+      <VStack spacing={4}>
         <Box
-          position="absolute"
-          w="100%"
-          h="100%"
-          bg="gray.800"
-          border="2px solid"
-          borderColor="gray.700"
-          borderRadius="xl"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
+          fontSize="4xl"
+          color={color}
+          lineHeight="1"
+          _groupHover={{
+            transform: "scale(1.15)",
+            filter: `drop-shadow(0 0 12px ${color}88)`,
           }}
-          boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
-          _hover={{
-            borderColor: gameMode ? "gray.700" : "#f0d122",
-            boxShadow: gameMode ? "0 4px 15px rgba(0, 0, 0, 0.2)" : "0 8px 25px rgba(240, 209, 34, 0.3)",
-          }}
-          transition="all 0.3s ease"
+          sx={{ transition: "transform 0.3s ease, filter 0.3s ease" }}
         >
-          <VStack spacing={4}>
-            <MotionBox
-              fontSize="4xl"
-              color="gray.200"
-              whileHover={!gameMode ? { scale: 1.2, color: "#f0d122" } : {}}
-              transition={{ duration: 0.3 }}
-            >
-              {icon}
-            </MotionBox>
-            <Text
-              fontSize="md"
-              fontWeight="semibold"
-              color="white"
-              textAlign="center"
-            >
-              {name}
-            </Text>
-          </VStack>
+          {icon}
         </Box>
-
-        {/* Back - The "Door" (question mark) */}
-        <MotionBox
-          position="absolute"
-          w="100%"
-          h="100%"
-          bg="gray.800"
-          border="2px solid"
-          borderColor="#f0d122"
-          borderRadius="xl"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}
-          boxShadow="0 4px 15px rgba(240, 209, 34, 0.2)"
-          _hover={{
-            boxShadow: "0 8px 25px rgba(240, 209, 34, 0.4)",
-            borderColor: "#ffd44d",
-          }}
-          animate={shouldPulse ? {
-            scale: [1, 1.1, 1],
-            boxShadow: [
-              "0 4px 15px rgba(240, 209, 34, 0.2)",
-              "0 8px 40px rgba(240, 209, 34, 0.8)",
-              "0 4px 15px rgba(240, 209, 34, 0.2)",
-            ],
-          } : {}}
-          transition={{ duration: 0.6, repeat: shouldPulse ? Infinity : 0 }}
-        >
-          <VStack spacing={2}>
-            <Box fontSize="4xl" color="#f0d122">
-              <FaQuestion />
-            </Box>
-            <Text fontSize="xs" color="gray.400" fontWeight="bold">
-              CLICK TO REVEAL
-            </Text>
-          </VStack>
-        </MotionBox>
-      </MotionBox>
-    </Box>
+        <Text fontSize="md" fontWeight="semibold" color="white" textAlign="center">
+          {name}
+        </Text>
+      </VStack>
+    </MotionBox>
   );
 }
