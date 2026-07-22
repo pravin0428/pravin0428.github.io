@@ -57,6 +57,13 @@ import {
   FaMicrophone,
   FaBolt,
   FaCodeBranch,
+  FaUsers,
+  FaHandshake,
+  FaChalkboardTeacher,
+  FaHandsHelping,
+  FaLightbulb,
+  FaChartLine,
+  FaSearch,
 } from "react-icons/fa";
 import SkillCard from "./SkillCard";
 import { FadeInWhenVisible, StaggerContainer, StaggerItem } from "./AnimationWrappers";
@@ -145,6 +152,19 @@ const skillCategories = [
       { name: "Thunder Client", icon: <FaBolt />, color: "#7B4BFF" },
       { name: "GitLens", icon: <FaCodeBranch />, color: "#DD6FF0" },
       { name: "NPM", icon: <SiNpm />, color: "#CB3837" },
+    ],
+  },
+  {
+    title: "Soft Skills",
+    icon: FaUsers,
+    skills: [
+      { name: "Technical Leadership", icon: <FaChalkboardTeacher />, color: "#F59E0B" },
+      { name: "Ownership", icon: <FaHandshake />, color: "#34D399" },
+      { name: "Collaboration", icon: <FaUsers />, color: "#60A5FA" },
+      { name: "Mentoring", icon: <FaHandsHelping />, color: "#F472B6" },
+      { name: "Problem Solving", icon: <FaLightbulb />, color: "#FBBF24" },
+      { name: "Analytical Thinking", icon: <FaChartLine />, color: "#A78BFA" },
+      { name: "Code Review", icon: <FaSearch />, color: "#22D3EE" },
     ],
   },
 ];

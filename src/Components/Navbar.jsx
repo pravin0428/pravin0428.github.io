@@ -106,9 +106,8 @@ function Navbar() {
           {/* Right Side (Resume + Mobile Toggle) */}
           <HStack spacing={4}>
             <a
-              href="https://drive.google.com/file/d/1mbjKLsqqQWV12ZTEy7g5OMC-pFPPujRf/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/Pravin-Mohite-Resume.pdf"
+              download="Pravin-Mohite-Resume.pdf"
             >
               <Button
                 size="md"

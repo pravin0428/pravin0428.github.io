@@ -12,6 +12,10 @@ import {
   SiReact,
   SiChakraui,
   SiExpress,
+  SiPython,
+  SiFastapi,
+  SiFfmpeg,
+  SiDocker,
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import { useRef } from "react";
@@ -19,6 +23,17 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const projects = [
+  {
+    name: "Video Engine",
+    img: "/video-engine.png",
+    link: "https://video-engine-xeel.onrender.com",
+    git: "https://github.com/pravin0428/videoPipeline",
+    about:
+      "Turn a script into a fully narrated, subtitled video automatically — AI voiceover, stock footage, and captions rendered into a ready-to-post vertical documentary.",
+    stacks: [<SiPython />, <SiFastapi />, <SiFfmpeg />, <SiDocker />],
+    duration: "Personal",
+    status: "Personal project",
+  },
   {
     name: "Trouper.com",
     img: "trouperphoto.png",
